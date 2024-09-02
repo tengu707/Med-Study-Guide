@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Blue_Control.tres" type="Theme" id=1]
+[ext_resource path="res://RadioMenu.gd" type="Script" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -512.0
+margin_bottom = -300.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MenuContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
+margin_left = 221.0
+margin_top = 29.0
+margin_right = 291.0
+margin_bottom = 271.0
+
+[node name="Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_right = 70.0
+margin_bottom = 18.0
+text = "Start Test"
+
+[node name="LevelLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 70.0
+margin_bottom = 45.0
+text = "Level"
+fit_content_height = true
+
+[node name="Level" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 70.0
+margin_bottom = 67.0
+text = "BLS"
+items = [ "BLS", null, false, 0, null, "ALS", null, false, 2, null ]
+selected = 0
+
+[node name="SceneLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 70.0
+margin_bottom = 94.0
+text = "Scene"
+fit_content_height = true
+
+[node name="Scene" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 70.0
+margin_bottom = 116.0
+text = "Random"
+items = [ "Random", null, false, 0, null, "ALOC", null, false, 1, null, "Allergic Reaction", null, false, 2, null, "Behavioral Emergency", null, false, 3, null, "Cardiac Arrest", null, false, 4, null, "Chest Pain", null, false, 5, null, "Child Birth", null, false, 6, null, "Overdose", null, false, 7, null, "Respitory Distress", null, false, 8, null, "Seizures", null, false, 9, null, "Syncope", null, false, 10, null, "Trauma", null, false, 11, null, "Hyperthermia", null, false, 12, null, "Hypothermia", null, false, 13, null, "Envenomation", null, false, 14, null, "Burns", null, false, 15, null ]
+selected = 0
+
+[node name="VitalsLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 70.0
+margin_bottom = 143.0
+text = "Vitals"
+fit_content_height = true
+
+[node name="Vitals" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 70.0
+margin_bottom = 165.0
+text = "WNL"
+items = [ "WNL", null, false, 0, null, "Scenario Based", null, false, 1, null, "Randomized", null, false, 2, null ]
+selected = 0
+
+[node name="SeedLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 169.0
+margin_right = 70.0
+margin_bottom = 220.0
+text = "Seed (Random if Blank)"
+fit_content_height = true
+
+[node name="Seed" type="LineEdit" parent="MenuContainer/VBoxContainer"]
+margin_top = 224.0
+margin_right = 70.0
+margin_bottom = 242.0
+max_length = 8
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

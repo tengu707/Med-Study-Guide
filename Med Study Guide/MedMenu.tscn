@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Blue_Control.tres" type="Theme" id=1]
+[ext_resource path="res://MedMenu.gd" type="Script" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -512.0
+margin_bottom = -300.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MenuContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
+margin_left = 173.0
+margin_top = 11.0
+margin_right = 339.0
+margin_bottom = 288.0
+
+[node name="Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_right = 166.0
+margin_bottom = 18.0
+text = "Start Test"
+
+[node name="LevelLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 166.0
+margin_bottom = 45.0
+text = "Question Type"
+fit_content_height = true
+
+[node name="Level" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 166.0
+margin_bottom = 67.0
+text = "Multiple Choice"
+items = [ "Multiple Choice", null, false, 0, null, "Fill In", null, false, 2, null ]
+selected = 0
+
+[node name="MedLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 166.0
+margin_bottom = 94.0
+text = "Medications"
+fit_content_height = true
+
+[node name="Meds" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 166.0
+margin_bottom = 116.0
+text = "Generic and Paramedic"
+items = [ "Generic and Paramedic", null, false, 0, null, "Generic", null, false, 1, null, "Paramedic", null, false, 2, null ]
+selected = 0
+
+[node name="WeekLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 166.0
+margin_bottom = 143.0
+text = "Class Week"
+fit_content_height = true
+
+[node name="Week" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 166.0
+margin_bottom = 165.0
+text = "1"
+items = [ "1", null, false, 0, null, "2", null, false, 1, null, "3", null, false, 2, null, "4", null, false, 3, null, "5", null, false, 4, null, "6", null, false, 5, null, "7", null, false, 6, null, "8", null, false, 7, null, "9", null, false, 8, null, "10", null, false, 9, null, "11", null, false, 10, null, "12", null, false, 11, null, "13", null, false, 12, null, "14", null, false, 13, null ]
+selected = 0
+
+[node name="PreviousLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 169.0
+margin_right = 166.0
+margin_bottom = 206.0
+text = "Include Previous Medications"
+fit_content_height = true
+
+[node name="Previous" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 210.0
+margin_right = 166.0
+margin_bottom = 228.0
+text = "Yes"
+items = [ "Yes", null, false, 0, null, "No", null, false, 1, null ]
+selected = 0
+
+[node name="SeedLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 232.0
+margin_right = 166.0
+margin_bottom = 255.0
+text = "Seed (Random if Blank)"
+fit_content_height = true
+
+[node name="Seed" type="LineEdit" parent="MenuContainer/VBoxContainer"]
+margin_top = 259.0
+margin_right = 166.0
+margin_bottom = 277.0
+max_length = 8
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

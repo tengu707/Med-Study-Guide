@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PrimaryMenu.gd" type="Script" id=1]
+[ext_resource path="res://Blue_Control.tres" type="Theme" id=2]
+
+[node name="Control" type="Control"]
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="MenuContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
+margin_left = 197.0
+margin_top = 85.0
+margin_right = 315.0
+margin_bottom = 215.0
+
+[node name="Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_right = 118.0
+margin_bottom = 18.0
+text = "Start Test"
+
+[node name="LevelLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 118.0
+margin_bottom = 45.0
+text = "Question Type"
+fit_content_height = true
+
+[node name="Level" type="OptionButton" parent="MenuContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 118.0
+margin_bottom = 67.0
+text = "Multiple Choice"
+items = [ "Multiple Choice", null, false, 0, null, "Fill In", null, false, 2, null ]
+selected = 0
+
+[node name="SeedLabel" type="RichTextLabel" parent="MenuContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 118.0
+margin_bottom = 108.0
+text = "Seed (Random if Blank)"
+fit_content_height = true
+
+[node name="Seed" type="LineEdit" parent="MenuContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 118.0
+margin_bottom = 130.0
+max_length = 8
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

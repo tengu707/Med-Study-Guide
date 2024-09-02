@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Blue_Control.tres" type="Theme" id=1]
+[ext_resource path="res://MainMenu.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -512.0
+margin_bottom = -300.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MenuContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
+margin_left = 167.0
+margin_top = 108.0
+margin_right = 344.0
+margin_bottom = 192.0
+
+[node name="Med Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_right = 177.0
+margin_bottom = 18.0
+text = "Medications"
+
+[node name="Primary Assessment Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 177.0
+margin_bottom = 40.0
+text = "Primary Assessment (Beta)"
+
+[node name="Radio Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 177.0
+margin_bottom = 62.0
+text = "Radio (Developing)"
+
+[node name="Scenario Button" type="Button" parent="MenuContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 177.0
+margin_bottom = 84.0
+text = "Scenario (Developing)"
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Med Button" to="." method="_on_Med_Button_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Primary Assessment Button" to="." method="_on_Primary_Assessment_Button_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Radio Button" to="." method="_on_Radio_Button_pressed"]
